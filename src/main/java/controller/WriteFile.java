@@ -1,3 +1,5 @@
+package controller;
+
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
@@ -9,12 +11,11 @@ import java.util.Set;
 
 public abstract class WriteFile {
     private final static Set<StandardOpenOption> options = new HashSet<>();
+
     public static void writeFileChannel(ByteBuffer byteBuffer, String filePath) {
         options.add(StandardOpenOption.WRITE);
-        options.add(StandardOpenOption.CREATE);
-        options.add(StandardOpenOption.TRUNCATE_EXISTING);
+        options.add(StandardOpenOption.APPEND);
         Path path = Paths.get(filePath);
-
         try {
             FileChannel fileChannel = FileChannel.open(path, options);
             fileChannel.write(byteBuffer);

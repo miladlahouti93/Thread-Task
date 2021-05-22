@@ -1,3 +1,8 @@
+package controller;
+
+import model.BalanceDTO;
+import model.PaymentDTO;
+
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.nio.charset.Charset;
@@ -22,9 +27,11 @@ public class ReadFile {
                 PaymentDTO paymentDTO = new PaymentDTO();
                 if (!line.isEmpty()) {
                     String[] tokens = line.split("\\s");
-                    paymentDTO.setActionType(PaymentDTO.actionType.valueOf(tokens[0]));
-                    paymentDTO.setDepositNumber(tokens[1]);
-                    paymentDTO.setBalance(new BigDecimal(tokens[2]));
+                    if (!tokens.equals(null)) {
+                        paymentDTO.setActionType(PaymentDTO.actionType.valueOf(tokens[0]));
+                        paymentDTO.setDepositNumber(tokens[1]);
+                        paymentDTO.setBalance(new BigDecimal(tokens[2]));
+                    }
                 }
                 paymentDTOList.add(paymentDTO);
             }
@@ -35,8 +42,10 @@ public class ReadFile {
                 BalanceDTO balanceDTO = new BalanceDTO();
                 if (!line.isEmpty()) {
                     String[] tokens = line.split("\\s");
-                    balanceDTO.setDepositNumber(tokens[0]);
-                    balanceDTO.setBalance(new BigDecimal(tokens[1]));
+                    if (!tokens.equals(null)) {
+                        balanceDTO.setDepositNumber(tokens[0]);
+                        balanceDTO.setBalance(new BigDecimal(tokens[1]));
+                    }
                 }
                 balanceDTOS.add(balanceDTO);
             }

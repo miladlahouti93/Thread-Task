@@ -1,17 +1,10 @@
-import java.io.Serializable;
+package model;
+
 import java.math.BigDecimal;
 
-public class PaymentDTO implements Serializable {
-    public enum actionType {
-        debtor,creditor
-    }
-    private actionType actionType;
+public class BalanceDTO {
     private String depositNumber;
     private BigDecimal balance;
-
-    public void setActionType(actionType actionType) {
-        this.actionType = actionType;
-    }
 
     public String getDepositNumber() {
         return depositNumber;
@@ -29,11 +22,12 @@ public class PaymentDTO implements Serializable {
         this.balance = balance;
     }
 
-    public PaymentDTO() {
+    public BalanceDTO() {
     }
 
+
+    @Override
     public String toString() {
-        return new StringBuffer().append(actionType)
-                .append(" ").append(this.depositNumber).append(" ").append(this.balance).append("\n").toString();
+        return this.depositNumber+" "+this.balance+"\n";
     }
 }
