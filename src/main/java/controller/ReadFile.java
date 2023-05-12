@@ -12,6 +12,8 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
+//read file NIO
+
 public class ReadFile {
     public static <T> List<T> readFile(String typeDto, String filePathPay) {
         Path pathPay = Paths.get(filePathPay);
