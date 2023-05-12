@@ -20,6 +20,7 @@ public class UpdateBalance extends WriteFile {
                 if (balanceList.getDepositNumber().equals(bankBalanceDTO.getDepositNumber())){
                     bankBalanceDTO.setBalance(balanceList.getBalance().subtract(paymentDTO.getBalance()));
                     countPayment++;
+                    System.out.println(countPayment);
                     break;
                 }
                     else{
